@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		339507921CFB26B000CE4BC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339507911CFB26B000CE4BC0 /* Assets.xcassets */; };
+		339507951CFB26B000CE4BC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339507931CFB26B000CE4BC0 /* LaunchScreen.storyboard */; };
+		339507A01CFB26B000CE4BC0 /* PinTu_GameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395079F1CFB26B000CE4BC0 /* PinTu_GameTests.m */; };
+		339507AB1CFB26B000CE4BC0 /* PinTu_GameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507AA1CFB26B000CE4BC0 /* PinTu_GameUITests.m */; };
+		339507C11CFB49D800CE4BC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507BF1CFB49D800CE4BC0 /* AppDelegate.m */; };
+		339507C21CFB49D800CE4BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507C01CFB49D800CE4BC0 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3395079C1CFB26B000CE4BC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3395077A1CFB26AF00CE4BC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 339507811CFB26AF00CE4BC0;
+			remoteInfo = PinTu_Game;
+		};
+		339507A71CFB26B000CE4BC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3395077A1CFB26AF00CE4BC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 339507811CFB26AF00CE4BC0;
+			remoteInfo = PinTu_Game;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		339507821CFB26AF00CE4BC0 /* PinTu_Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinTu_Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		339507911CFB26B000CE4BC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		339507941CFB26B000CE4BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		339507961CFB26B000CE4BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3395079B1CFB26B000CE4BC0 /* PinTu_GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinTu_GameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3395079F1CFB26B000CE4BC0 /* PinTu_GameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinTu_GameTests.m; sourceTree = "<group>"; };
+		339507A11CFB26B000CE4BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		339507A61CFB26B000CE4BC0 /* PinTu_GameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinTu_GameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		339507AA1CFB26B000CE4BC0 /* PinTu_GameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinTu_GameUITests.m; sourceTree = "<group>"; };
+		339507AC1CFB26B000CE4BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		339507BE1CFB49D800CE4BC0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		339507BF1CFB49D800CE4BC0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		339507C01CFB49D800CE4BC0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3395077F1CFB26AF00CE4BC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339507981CFB26B000CE4BC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339507A31CFB26B000CE4BC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		339507791CFB26AF00CE4BC0 = {
+			isa = PBXGroup;
+			children = (
+				339507841CFB26B000CE4BC0 /* PinTu_Game */,
+				3395079E1CFB26B000CE4BC0 /* PinTu_GameTests */,
+				339507A91CFB26B000CE4BC0 /* PinTu_GameUITests */,
+				339507831CFB26AF00CE4BC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		339507831CFB26AF00CE4BC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				339507821CFB26AF00CE4BC0 /* PinTu_Game.app */,
+				3395079B1CFB26B000CE4BC0 /* PinTu_GameTests.xctest */,
+				339507A61CFB26B000CE4BC0 /* PinTu_GameUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		339507841CFB26B000CE4BC0 /* PinTu_Game */ = {
+			isa = PBXGroup;
+			children = (
+				339507B81CFB49D800CE4BC0 /* Classes */,
+				339507851CFB26B000CE4BC0 /* Supporting Files */,
+			);
+			path = PinTu_Game;
+			sourceTree = "<group>";
+		};
+		339507851CFB26B000CE4BC0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				339507911CFB26B000CE4BC0 /* Assets.xcassets */,
+				339507931CFB26B000CE4BC0 /* LaunchScreen.storyboard */,
+				339507961CFB26B000CE4BC0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3395079E1CFB26B000CE4BC0 /* PinTu_GameTests */ = {
+			isa = PBXGroup;
+			children = (
+				3395079F1CFB26B000CE4BC0 /* PinTu_GameTests.m */,
+				339507A11CFB26B000CE4BC0 /* Info.plist */,
+			);
+			path = PinTu_GameTests;
+			sourceTree = "<group>";
+		};
+		339507A91CFB26B000CE4BC0 /* PinTu_GameUITests */ = {
+			isa = PBXGroup;
+			children = (
+				339507AA1CFB26B000CE4BC0 /* PinTu_GameUITests.m */,
+				339507AC1CFB26B000CE4BC0 /* Info.plist */,
+			);
+			path = PinTu_GameUITests;
+			sourceTree = "<group>";
+		};
+		339507B81CFB49D800CE4BC0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				339507B91CFB49D800CE4BC0 /* Game */,
+				339507BA1CFB49D800CE4BC0 /* Main */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		339507B91CFB49D800CE4BC0 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		339507BA1CFB49D800CE4BC0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				339507BB1CFB49D800CE4BC0 /* Controller */,
+				339507BC1CFB49D800CE4BC0 /* Lib */,
+				339507BD1CFB49D800CE4BC0 /* Other */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		339507BB1CFB49D800CE4BC0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		339507BC1CFB49D800CE4BC0 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		339507BD1CFB49D800CE4BC0 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				339507BE1CFB49D800CE4BC0 /* AppDelegate.h */,
+				339507BF1CFB49D800CE4BC0 /* AppDelegate.m */,
+				339507C01CFB49D800CE4BC0 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		339507811CFB26AF00CE4BC0 /* PinTu_Game */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339507AF1CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_Game" */;
+			buildPhases = (
+				3395077E1CFB26AF00CE4BC0 /* Sources */,
+				3395077F1CFB26AF00CE4BC0 /* Frameworks */,
+				339507801CFB26AF00CE4BC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PinTu_Game;
+			productName = PinTu_Game;
+			productReference = 339507821CFB26AF00CE4BC0 /* PinTu_Game.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3395079A1CFB26B000CE4BC0 /* PinTu_GameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339507B21CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_GameTests" */;
+			buildPhases = (
+				339507971CFB26B000CE4BC0 /* Sources */,
+				339507981CFB26B000CE4BC0 /* Frameworks */,
+				339507991CFB26B000CE4BC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3395079D1CFB26B000CE4BC0 /* PBXTargetDependency */,
+			);
+			name = PinTu_GameTests;
+			productName = PinTu_GameTests;
+			productReference = 3395079B1CFB26B000CE4BC0 /* PinTu_GameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		339507A51CFB26B000CE4BC0 /* PinTu_GameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339507B51CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_GameUITests" */;
+			buildPhases = (
+				339507A21CFB26B000CE4BC0 /* Sources */,
+				339507A31CFB26B000CE4BC0 /* Frameworks */,
+				339507A41CFB26B000CE4BC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				339507A81CFB26B000CE4BC0 /* PBXTargetDependency */,
+			);
+			name = PinTu_GameUITests;
+			productName = PinTu_GameUITests;
+			productReference = 339507A61CFB26B000CE4BC0 /* PinTu_GameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3395077A1CFB26AF00CE4BC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = xiaocai;
+				TargetAttributes = {
+					339507811CFB26AF00CE4BC0 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					3395079A1CFB26B000CE4BC0 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 339507811CFB26AF00CE4BC0;
+					};
+					339507A51CFB26B000CE4BC0 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 339507811CFB26AF00CE4BC0;
+					};
+				};
+			};
+			buildConfigurationList = 3395077D1CFB26AF00CE4BC0 /* Build configuration list for PBXProject "PinTu_Game" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 339507791CFB26AF00CE4BC0;
+			productRefGroup = 339507831CFB26AF00CE4BC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				339507811CFB26AF00CE4BC0 /* PinTu_Game */,
+				3395079A1CFB26B000CE4BC0 /* PinTu_GameTests */,
+				339507A51CFB26B000CE4BC0 /* PinTu_GameUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		339507801CFB26AF00CE4BC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339507951CFB26B000CE4BC0 /* LaunchScreen.storyboard in Resources */,
+				339507921CFB26B000CE4BC0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339507991CFB26B000CE4BC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339507A41CFB26B000CE4BC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3395077E1CFB26AF00CE4BC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339507C21CFB49D800CE4BC0 /* main.m in Sources */,
+				339507C11CFB49D800CE4BC0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339507971CFB26B000CE4BC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339507A01CFB26B000CE4BC0 /* PinTu_GameTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339507A21CFB26B000CE4BC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339507AB1CFB26B000CE4BC0 /* PinTu_GameUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3395079D1CFB26B000CE4BC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 339507811CFB26AF00CE4BC0 /* PinTu_Game */;
+			targetProxy = 3395079C1CFB26B000CE4BC0 /* PBXContainerItemProxy */;
+		};
+		339507A81CFB26B000CE4BC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 339507811CFB26AF00CE4BC0 /* PinTu_Game */;
+			targetProxy = 339507A71CFB26B000CE4BC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		339507931CFB26B000CE4BC0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339507941CFB26B000CE4BC0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		339507AD1CFB26B000CE4BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		339507AE1CFB26B000CE4BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		339507B01CFB26B000CE4BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PinTu_Game/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-Game";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		339507B11CFB26B000CE4BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PinTu_Game/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-Game";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		339507B31CFB26B000CE4BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PinTu_GameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinTu_Game.app/PinTu_Game";
+			};
+			name = Debug;
+		};
+		339507B41CFB26B000CE4BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PinTu_GameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinTu_Game.app/PinTu_Game";
+			};
+			name = Release;
+		};
+		339507B61CFB26B000CE4BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PinTu_GameUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-GameUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PinTu_Game;
+			};
+			name = Debug;
+		};
+		339507B71CFB26B000CE4BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PinTu_GameUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-GameUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PinTu_Game;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3395077D1CFB26AF00CE4BC0 /* Build configuration list for PBXProject "PinTu_Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339507AD1CFB26B000CE4BC0 /* Debug */,
+				339507AE1CFB26B000CE4BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		339507AF1CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339507B01CFB26B000CE4BC0 /* Debug */,
+				339507B11CFB26B000CE4BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		339507B21CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_GameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339507B31CFB26B000CE4BC0 /* Debug */,
+				339507B41CFB26B000CE4BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		339507B51CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_GameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339507B61CFB26B000CE4BC0 /* Debug */,
+				339507B71CFB26B000CE4BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3395077A1CFB26AF00CE4BC0 /* Project object */;
+}
