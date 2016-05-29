@@ -13,6 +13,7 @@
 		339507AB1CFB26B000CE4BC0 /* PinTu_GameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507AA1CFB26B000CE4BC0 /* PinTu_GameUITests.m */; };
 		339507C11CFB49D800CE4BC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507BF1CFB49D800CE4BC0 /* AppDelegate.m */; };
 		339507C21CFB49D800CE4BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507C01CFB49D800CE4BC0 /* main.m */; };
+		339507C51CFB4A0600CE4BC0 /* MainGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507C41CFB4A0600CE4BC0 /* MainGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		339507BE1CFB49D800CE4BC0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		339507BF1CFB49D800CE4BC0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		339507C01CFB49D800CE4BC0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		339507C31CFB4A0600CE4BC0 /* MainGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameViewController.h; sourceTree = "<group>"; };
+		339507C41CFB4A0600CE4BC0 /* MainGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 		339507BB1CFB49D800CE4BC0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				339507C31CFB4A0600CE4BC0 /* MainGameViewController.h */,
+				339507C41CFB4A0600CE4BC0 /* MainGameViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 			files = (
 				339507C21CFB49D800CE4BC0 /* main.m in Sources */,
 				339507C11CFB49D800CE4BC0 /* AppDelegate.m in Sources */,
+				339507C51CFB4A0600CE4BC0 /* MainGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
