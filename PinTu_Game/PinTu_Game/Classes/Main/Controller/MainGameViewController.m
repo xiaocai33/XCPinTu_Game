@@ -8,10 +8,12 @@
 
 #import "MainGameViewController.h"
 #import "UIView+SDAutoLayout.h"
+#import "GameView.h"
+#import "const.h"
 
 @interface MainGameViewController ()
 /** 显示要使用的图片 */
-@property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, strong) GameView *gameView;
 
 @property (nonatomic, assign) int currentImageID;
 
@@ -19,14 +21,6 @@
 
 @implementation MainGameViewController
 #pragma mark - 懒加载控件
-- (UIImageView *)imageView{
-    if (!_imageView) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        [self.view addSubview:imageView];
-        _imageView = imageView;
-    }
-    return _imageView;
-}
 
 #pragma mark - 控制器相关
 - (void)viewDidLoad {
@@ -44,25 +38,24 @@
     backgroundImageView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topEqualToView(self.view).bottomEqualToView(self.view);
     
     //设置显示的拼图
-    UIImageView *contextImageView = [[UIImageView alloc] init];
-    contextImageView.image = [UIImage imageNamed:@"pin_0"];
-    [self.view addSubview:contextImageView];
-    _imageView = contextImageView;
-    contextImageView.sd_layout.rightSpaceToView(self.view, 10).leftSpaceToView(self.view, 10).topSpaceToView(self.view, 20).bottomSpaceToView(self.view, 60);
+    _gameView = [[GameView alloc] init];
+    _gameView.image = [UIImage imageNamed:@"pin_0"];
+    [self.view addSubview:self.gameView];
+    _gameView.sd_layout.centerXEqualToView(self.view).topSpaceToView(self.view, 50).widthIs(COL_COUNT * CARD_WIDTH).heightIs(ROW_COUNT * CARD_HEIGHT);
     
     //添加按钮(开始,选择图片)
     UIButton *startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [startBtn setTitle:@"开始" forState:UIControlStateNormal];
     [startBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:startBtn];
-    startBtn.sd_layout.leftSpaceToView(self.view, 100).topSpaceToView(contextImageView, 10).widthIs(80).heightIs(44);
+    startBtn.sd_layout.leftSpaceToView(self.view, 100).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
     
     UIButton *chooseImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [chooseImageBtn setTitle:@"选择图片" forState:UIControlStateNormal];
     [chooseImageBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [chooseImageBtn addTarget:self action:@selector(chooseImageBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:chooseImageBtn];
-    chooseImageBtn.sd_layout.leftSpaceToView(startBtn, 20).topSpaceToView(contextImageView, 10).widthIs(80).heightIs(44);
+    chooseImageBtn.sd_layout.leftSpaceToView(startBtn, 20).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
     
 }
 
@@ -71,7 +64,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择图片来源" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *nextImage = [UIAlertAction actionWithTitle:@"下一张" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.imageView.image = [UIImage imageNamed:[self nextImage]];
+        self.gameView.image = [UIImage imageNamed:[self nextImage]];
     }];
     
     [alert addAction:nextImage];
