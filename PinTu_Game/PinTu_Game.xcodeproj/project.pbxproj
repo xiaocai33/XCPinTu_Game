@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		338BEB331CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 338BEB301CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.m */; };
+		338BEB341CFC54C600CE1C9E /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 338BEB321CFC54C600CE1C9E /* UIView+SDAutoLayout.m */; };
 		339507921CFB26B000CE4BC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339507911CFB26B000CE4BC0 /* Assets.xcassets */; };
 		339507951CFB26B000CE4BC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339507931CFB26B000CE4BC0 /* LaunchScreen.storyboard */; };
 		339507A01CFB26B000CE4BC0 /* PinTu_GameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395079F1CFB26B000CE4BC0 /* PinTu_GameTests.m */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		338BEB2F1CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		338BEB301CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		338BEB311CFC54C600CE1C9E /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		338BEB321CFC54C600CE1C9E /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		339507821CFB26AF00CE4BC0 /* PinTu_Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinTu_Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		339507911CFB26B000CE4BC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		339507941CFB26B000CE4BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +82,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		338BEB2E1CFC54C600CE1C9E /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				338BEB2F1CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.h */,
+				338BEB301CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.m */,
+				338BEB311CFC54C600CE1C9E /* UIView+SDAutoLayout.h */,
+				338BEB321CFC54C600CE1C9E /* UIView+SDAutoLayout.m */,
+			);
+			path = SDAutoLayout;
+			sourceTree = "<group>";
+		};
+		338BEB351CFC5DE700CE1C9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		339507791CFB26AF00CE4BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +176,7 @@
 		339507BA1CFB49D800CE4BC0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				338BEB351CFC5DE700CE1C9E /* View */,
 				339507BB1CFB49D800CE4BC0 /* Controller */,
 				339507BC1CFB49D800CE4BC0 /* Lib */,
 				339507BD1CFB49D800CE4BC0 /* Other */,
@@ -171,6 +196,7 @@
 		339507BC1CFB49D800CE4BC0 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				338BEB2E1CFC54C600CE1C9E /* SDAutoLayout */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -316,7 +342,9 @@
 			files = (
 				339507C21CFB49D800CE4BC0 /* main.m in Sources */,
 				339507C11CFB49D800CE4BC0 /* AppDelegate.m in Sources */,
+				338BEB331CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				339507C51CFB4A0600CE4BC0 /* MainGameViewController.m in Sources */,
+				338BEB341CFC54C600CE1C9E /* UIView+SDAutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +562,7 @@
 				339507B11CFB26B000CE4BC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		339507B21CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_GameTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +571,7 @@
 				339507B41CFB26B000CE4BC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		339507B51CFB26B000CE4BC0 /* Build configuration list for PBXNativeTarget "PinTu_GameUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +580,7 @@
 				339507B71CFB26B000CE4BC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
