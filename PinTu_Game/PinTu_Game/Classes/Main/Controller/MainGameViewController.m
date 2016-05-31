@@ -12,6 +12,7 @@
 #import "const.h"
 #import "UIImage+Extension.h"
 #import "UIView+Extension.h"
+#import "OrginImageController.h"
 
 @interface MainGameViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, GameViewDelegate>
 /** 显示要使用的图片 */
@@ -41,11 +42,12 @@
     self.currentImageID = 0;
     [self setupChildView];
     //开始游戏
-    [self startGame];
+    [self resetGame];
 }
 
 #pragma mark - 初始化控件
 - (void)setupChildView{
+    self.imageView.image = [UIImage imageNamed:@"pin_0"];
     //设置显示的拼图
     self.gameView= [[GameView alloc] init];
     self.gameView.image = [UIImage imageNamed:@"pin_0"];
@@ -54,13 +56,18 @@
     self.gameView.sd_layout.centerXEqualToView(self.view).topSpaceToView(self.view, 50).widthIs(COL_COUNT * CARD_WIDTH).heightIs(ROW_COUNT * CARD_HEIGHT);
     
     //添加按钮(开始,选择图片)
-    UIButton *startBtn = [self addBtnWithTitle:@"重置"];
-    [startBtn addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
-    startBtn.sd_layout.leftSpaceToView(self.view, 100).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
-    
     UIButton *chooseImageBtn = [self addBtnWithTitle:@"选择图片"];
     [chooseImageBtn addTarget:self action:@selector(chooseImageBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    chooseImageBtn.sd_layout.leftSpaceToView(startBtn, 20).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
+    chooseImageBtn.sd_layout.centerXEqualToView(self.view).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
+    
+    UIButton *resetBtn = [self addBtnWithTitle:@"重置"];
+    [resetBtn addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
+    resetBtn.sd_layout.rightSpaceToView(chooseImageBtn, 20).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
+    
+    
+    UIButton *orginImageBtn = [self addBtnWithTitle:@"原图"];
+    [orginImageBtn addTarget:self action:@selector(orginImageBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    orginImageBtn.sd_layout.leftSpaceToView(chooseImageBtn, 20).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
     
 }
 /**
@@ -77,8 +84,19 @@
 }
 
 #pragma mark - 开始游戏
+/**
+ *  查看原图
+ */
+- (void)orginImageBtnClick{
+    OrginImageController *orginVc = [[OrginImageController alloc] init];
+    orginVc.image = self.imageView.image;
+    orginVc.modalTransitionStyle = UIModalTransitionStylePartialCurl;
+    
+    [self presentViewController:orginVc animated:YES completion:nil];
+}
+
 /** 开始游戏 */
-- (void)startGame{
+- (void)resetGame{
     //打乱图片
     [self.gameView resetCardImages];
 }
@@ -92,7 +110,13 @@
     
     //内置图片下一张
     UIAlertAction *nextImage = [UIAlertAction actionWithTitle:@"下一张" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.gameView.image = [UIImage imageNamed:[self nextImage]];
+        //切换控制器保留的图片
+        self.imageView.image = [UIImage imageNamed:[self nextImage]];
+        //切换图片
+        self.gameView.image = self.imageView.image;
+        //打乱顺序
+        [self resetGame];
+        
     }];
     
     //相机
@@ -151,8 +175,10 @@
     if (image.size.width > 640 || image.size.height > 980) {
         image = [image reSize:CGSizeMake(640, 980)];
     }
+    //保留image对象,防止选完后被释放
     self.imageView.image = image;
     
+    //取出imageView中的图片传给gameView
     self.gameView.image = self.imageView.image;
     [picker dismissViewControllerAnimated:YES completion:nil];
     

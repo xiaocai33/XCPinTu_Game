@@ -20,6 +20,7 @@
 		339507C11CFB49D800CE4BC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507BF1CFB49D800CE4BC0 /* AppDelegate.m */; };
 		339507C21CFB49D800CE4BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507C01CFB49D800CE4BC0 /* main.m */; };
 		339507C51CFB4A0600CE4BC0 /* MainGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339507C41CFB4A0600CE4BC0 /* MainGameViewController.m */; };
+		339695B41CFDD9C400D36E51 /* OrginImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339695B31CFDD9C400D36E51 /* OrginImageController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		339507C01CFB49D800CE4BC0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		339507C31CFB4A0600CE4BC0 /* MainGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameViewController.h; sourceTree = "<group>"; };
 		339507C41CFB4A0600CE4BC0 /* MainGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainGameViewController.m; sourceTree = "<group>"; };
+		339695B21CFDD9C400D36E51 /* OrginImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrginImageController.h; sourceTree = "<group>"; };
+		339695B31CFDD9C400D36E51 /* OrginImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrginImageController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +230,8 @@
 			children = (
 				339507C31CFB4A0600CE4BC0 /* MainGameViewController.h */,
 				339507C41CFB4A0600CE4BC0 /* MainGameViewController.m */,
+				339695B21CFDD9C400D36E51 /* OrginImageController.h */,
+				339695B31CFDD9C400D36E51 /* OrginImageController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				339507C51CFB4A0600CE4BC0 /* MainGameViewController.m in Sources */,
 				338BEB341CFC54C600CE1C9E /* UIView+SDAutoLayout.m in Sources */,
 				338BEB441CFC6DFB00CE1C9E /* UIImage+Extension.m in Sources */,
+				339695B41CFDD9C400D36E51 /* OrginImageController.m in Sources */,
 				338BEB411CFC5F4500CE1C9E /* UIView+Extension.m in Sources */,
 				338BEB3B1CFC5F2C00CE1C9E /* GameView.m in Sources */,
 			);
