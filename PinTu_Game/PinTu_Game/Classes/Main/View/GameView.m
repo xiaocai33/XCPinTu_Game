@@ -48,16 +48,13 @@
 #pragma mark - 初始化切割图片
 - (void)setImage:(UIImage *)image{
     _image = image;
-    [self cutImage:[image CGImage]];
+    [self cupImage:[image CGImage]];
 }
-
 /**
  *  切割图片
  */
-- (void)cutImage:(CGImageRef)gameImage{
+- (void)cupImage:(CGImageRef)gameImage{
     CGImageRelease(gameImage);
-    gameImage = gameImage;
-    
     //清空上一次的视图(方便切换图片)
     for (CardImageView *cardView in self.cards) {
         [cardView removeFromSuperview];
@@ -225,65 +222,79 @@
 - (void)successPinTu{
     if ([self checkSuccess]) {
         //填充最后一张图片
-//        CardImageView *lastCardImage = [_cards lastObject];
-//        lastCardImage.indexI = self.currentNullIndexI;
-//        lastCardImage.indexJ = self.currentNullIndexJ;
-//        [lastCardImage resetPositionByIndexIJ];
-//        [self addSubview:lastCardImage];
-//        _cardsMap[self.currentNullIndexI][self.currentNullIndexJ] = lastCardImage;
+        CardImageView *lastCardImage = [_cards lastObject];
+        lastCardImage.indexI = self.currentNullIndexI;
+        lastCardImage.indexJ = self.currentNullIndexJ;
+        [lastCardImage resetPositionByIndexIJ];
+        [self addSubview:lastCardImage];
+        _cardsMap[self.currentNullIndexI][self.currentNullIndexJ] = lastCardImage;
+        //成功了提醒
+        if ([self.delegate respondsToSelector:@selector(gameSuccess:time:step:)]){
+            [self.delegate gameSuccess:self time:@"10" step:@"5"];
+        }
         
         NSLog(@"恭喜你,成功了");
     }
 }
+
 
 #pragma mark - (开始按钮后调用)数组乱序(打乱每个cardImage的位置)
 /**
  *  数组乱序(打乱每个cardImage的位置)
  */
 - (void)resetCardImages{
-    Dir dir = [self autoMoveDir];
+    if (_cards.count > 0) {
+        CardImageView *lastCardImage = [_cards lastObject];
+        [lastCardImage removeFromSuperview];
+    }
     
-    __block CardImageView *cardImage;
-    /**
-     *  用block块封装代码
-     *
-     *  @param int  要移动块的位置的I
-     *  @param int  要移动块的位置的J
-     */
-    void (^moveDir)(int, int) = ^(int nullI, int nullJ){
-        cardImage = _cardsMap[nullI][nullJ];
-        _cardsMap[self.currentNullIndexI][self.currentNullIndexJ] = cardImage;
-        _cardsMap[nullI][nullJ] = nil;
-        cardImage.indexI = self.currentNullIndexI;
-        cardImage.indexJ = self.currentNullIndexJ;
+    int count = 2;
+    while(count){
+        --count;
+        Dir dir = [self autoMoveDir];
         
-        //移动图片
-        [cardImage moveToPositionByIndexIJ];
-    };
-    
-    switch (dir) {
-        case DIR_UP://白块上移
-            moveDir(self.currentNullIndexI-1, self.currentNullIndexJ);
-            self.currentNullIndexI -= 1;
-            break;
+        __block CardImageView *cardImage;
+        /**
+         *  用block块封装代码
+         *
+         *  @param int  要移动块的位置的I
+         *  @param int  要移动块的位置的J
+         */
+        void (^moveDir)(int, int) = ^(int nullI, int nullJ){
+            cardImage = _cardsMap[nullI][nullJ];
+            _cardsMap[self.currentNullIndexI][self.currentNullIndexJ] = cardImage;
+            _cardsMap[nullI][nullJ] = nil;
+            cardImage.indexI = self.currentNullIndexI;
+            cardImage.indexJ = self.currentNullIndexJ;
             
-        case DIR_DOWN://白块下移
-            moveDir(self.currentNullIndexI+1, self.currentNullIndexJ);
-            self.currentNullIndexI += 1;
-            break;
-            
-        case DIR_LEFT://白块左移
-            moveDir(self.currentNullIndexI, self.currentNullIndexJ-1);
-            self.currentNullIndexJ -= 1;
-            break;
-            
-        case DIR_RIGHT://白块右移
-            moveDir(self.currentNullIndexI, self.currentNullIndexJ+1);
-            self.currentNullIndexJ += 1;
-            break;
-            
-        default:
-            break;
+            //移动图片
+            [cardImage moveToPositionByIndexIJ];
+        };
+        
+        switch (dir) {
+            case DIR_UP://白块上移
+                moveDir(self.currentNullIndexI-1, self.currentNullIndexJ);
+                self.currentNullIndexI -= 1;
+                break;
+                
+            case DIR_DOWN://白块下移
+                moveDir(self.currentNullIndexI+1, self.currentNullIndexJ);
+                self.currentNullIndexI += 1;
+                break;
+                
+            case DIR_LEFT://白块左移
+                moveDir(self.currentNullIndexI, self.currentNullIndexJ-1);
+                self.currentNullIndexJ -= 1;
+                break;
+                
+            case DIR_RIGHT://白块右移
+                moveDir(self.currentNullIndexI, self.currentNullIndexJ+1);
+                self.currentNullIndexJ += 1;
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 
@@ -319,6 +330,10 @@
 - (void)drawRect:(CGRect)rect{
     UIImage *bgImage = [UIImage imageNamed:@"blank"];
     [bgImage drawInRect:rect];
+}
+
+- (void)dealloc{
+    NSLog(@"GameView -- dealloc");
 }
 
 @end

@@ -12,6 +12,7 @@
 		338BEB3A1CFC5F2C00CE1C9E /* CardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 338BEB371CFC5F2C00CE1C9E /* CardImageView.m */; };
 		338BEB3B1CFC5F2C00CE1C9E /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 338BEB391CFC5F2C00CE1C9E /* GameView.m */; };
 		338BEB411CFC5F4500CE1C9E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 338BEB401CFC5F4500CE1C9E /* UIView+Extension.m */; };
+		338BEB441CFC6DFB00CE1C9E /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 338BEB431CFC6DFB00CE1C9E /* UIImage+Extension.m */; };
 		339507921CFB26B000CE4BC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339507911CFB26B000CE4BC0 /* Assets.xcassets */; };
 		339507951CFB26B000CE4BC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339507931CFB26B000CE4BC0 /* LaunchScreen.storyboard */; };
 		339507A01CFB26B000CE4BC0 /* PinTu_GameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395079F1CFB26B000CE4BC0 /* PinTu_GameTests.m */; };
@@ -50,6 +51,8 @@
 		338BEB3D1CFC5F3B00CE1C9E /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
 		338BEB3F1CFC5F4500CE1C9E /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		338BEB401CFC5F4500CE1C9E /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		338BEB421CFC6DFB00CE1C9E /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		338BEB431CFC6DFB00CE1C9E /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		339507821CFB26AF00CE4BC0 /* PinTu_Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinTu_Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		339507911CFB26B000CE4BC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		339507941CFB26B000CE4BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 			children = (
 				338BEB3F1CFC5F4500CE1C9E /* UIView+Extension.h */,
 				338BEB401CFC5F4500CE1C9E /* UIView+Extension.m */,
+				338BEB421CFC6DFB00CE1C9E /* UIImage+Extension.h */,
+				338BEB431CFC6DFB00CE1C9E /* UIImage+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				TargetAttributes = {
 					339507811CFB26AF00CE4BC0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = BZ452723K9;
 					};
 					3395079A1CFB26B000CE4BC0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -379,6 +385,7 @@
 				338BEB331CFC54C600CE1C9E /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				339507C51CFB4A0600CE4BC0 /* MainGameViewController.m in Sources */,
 				338BEB341CFC54C600CE1C9E /* UIView+SDAutoLayout.m in Sources */,
+				338BEB441CFC6DFB00CE1C9E /* UIImage+Extension.m in Sources */,
 				338BEB411CFC5F4500CE1C9E /* UIView+Extension.m in Sources */,
 				338BEB3B1CFC5F2C00CE1C9E /* GameView.m in Sources */,
 			);
@@ -515,10 +522,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PinTu_Game/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-Game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -526,10 +537,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PinTu_Game/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uestc.PinTu-Game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

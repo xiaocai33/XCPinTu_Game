@@ -48,4 +48,8 @@
     }];
 }
 
+//- (void)dealloc{
+//    NSLog(@"CardImageView -- dealloc");
+//}
+
 @end
