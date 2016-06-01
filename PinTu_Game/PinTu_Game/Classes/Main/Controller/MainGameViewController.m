@@ -13,6 +13,7 @@
 #import "UIImage+Extension.h"
 #import "UIView+Extension.h"
 #import "OrginImageController.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface MainGameViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, GameViewDelegate>
 /** 显示要使用的图片 */
@@ -21,7 +22,6 @@
 @property (nonatomic, assign) int currentImageID;
 
 @property (nonatomic, strong) UIImageView *imageView;
-
 
 @end
 
@@ -53,7 +53,7 @@
     self.gameView.image = [UIImage imageNamed:@"pin_0"];
     self.gameView.delegate = self;
     [self.view addSubview:self.gameView];
-    self.gameView.sd_layout.centerXEqualToView(self.view).topSpaceToView(self.view, 50).widthIs(COL_COUNT * CARD_WIDTH).heightIs(ROW_COUNT * CARD_HEIGHT);
+    self.gameView.sd_layout.centerXEqualToView(self.view).topSpaceToView(self.view, 20).widthIs(COL_COUNT * CARD_WIDTH).heightIs(ROW_COUNT * CARD_HEIGHT);
     
     //添加按钮(开始,选择图片)
     UIButton *chooseImageBtn = [self addBtnWithTitle:@"选择图片"];
@@ -122,6 +122,7 @@
     //相机
     UIAlertAction *cameraImage = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self chooseImageFromCameraOrLocation:UIImagePickerControllerSourceTypeCamera];
+       
     }];
     
     //相册
@@ -153,18 +154,30 @@
  *      UIImagePickerControllerSourceTypeSavedPhotosAlbum  相册
  */
 - (void)chooseImageFromCameraOrLocation:(UIImagePickerControllerSourceType)sourceType{
+    if (self.imageView.isAnimating)
+    {
+        [self.imageView stopAnimating];
+    }
     
     // 1.创建图片选择控制器
     UIImagePickerController *pickController = [[UIImagePickerController alloc] init];
+    pickController.modalPresentationStyle = UIModalPresentationCurrentContext;
      // 2.判断图库是否可用打开
     if ([UIImagePickerController availableMediaTypesForSourceType:sourceType]) {
         // 3.设置打开图库的类型
         pickController.sourceType = sourceType;
         pickController.delegate = self;
+        //解决打开相机时出现的警告
+        /**
+         *  Snapshotting a view that has not been rendered results in an empty snapshot. Ensure your view has been rendered at least once before snapshotting or snapshot after screen updates.
+         */
+    }else{
+        [MBProgressHUD showError:@"当前设备不支持相机或者相册图片" toView:self.view];
     }
     
     // 4.打开图片选择控制器
     [self presentViewController:pickController animated:YES completion:nil];
+    
 }
 
 #pragma mark -- UIImagePickerController代理方法
@@ -178,10 +191,17 @@
     //保留image对象,防止选完后被释放
     self.imageView.image = image;
     
+    [picker dismissViewControllerAnimated:YES completion:nil];
     //取出imageView中的图片传给gameView
     self.gameView.image = self.imageView.image;
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    //打乱顺序
+    [self resetGame];
     
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -199,7 +219,7 @@
 - (void)gameSuccess:(GameView *)gameView time:(NSString *)time step:(NSString *)step{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"恭喜您,拼图成功" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     //取消
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    //UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
     //再来一次
     UIAlertAction *again = [UIAlertAction actionWithTitle:@"再来一次" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -211,16 +231,13 @@
         self.gameView.image = [UIImage imageNamed:[self nextImage]];
     }];
     
-    [alert addAction:cancel];
+    //[alert addAction:cancel];
     [alert addAction:nextImage];
     [alert addAction:again];
     [self presentViewController:alert animated:YES completion:nil];
 
 }
 
-- (void)dealloc{
-    NSLog(@"MainVc -- dealloc");
-}
 
 
 @end

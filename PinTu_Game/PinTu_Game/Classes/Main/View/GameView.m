@@ -233,7 +233,7 @@
             [self.delegate gameSuccess:self time:@"10" step:@"5"];
         }
         
-        NSLog(@"恭喜你,成功了");
+        //NSLog(@"恭喜你,成功了");
     }
 }
 
@@ -248,7 +248,7 @@
         [lastCardImage removeFromSuperview];
     }
     
-    int count = 2;
+    int count = 20;
     while(count){
         --count;
         Dir dir = [self autoMoveDir];
