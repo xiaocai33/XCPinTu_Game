@@ -248,7 +248,7 @@
         [lastCardImage removeFromSuperview];
     }
     
-    int count = 20;
+    int count = 10;
     while(count){
         --count;
         Dir dir = [self autoMoveDir];

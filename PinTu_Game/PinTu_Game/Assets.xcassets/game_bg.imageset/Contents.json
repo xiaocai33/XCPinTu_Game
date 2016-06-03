@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon_bg.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "sidebar_bg@2x.jpg",
       "scale" : "2x"
     },
     {

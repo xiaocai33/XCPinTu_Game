@@ -48,7 +48,7 @@
 #pragma mark - 初始化控件
 - (void)setupChildView{
     
-    UIImageView *bgImageView= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    UIImageView *bgImageView= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_bg"]];
     [self.view addSubview:bgImageView];
     
     bgImageView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topEqualToView(self.view).bottomEqualToView(self.view);
@@ -59,21 +59,21 @@
     self.gameView.image = [UIImage imageNamed:@"pin_0"];
     self.gameView.delegate = self;
     [self.view addSubview:self.gameView];
-    self.gameView.sd_layout.centerXEqualToView(self.view).topSpaceToView(self.view, 20).widthIs(COL_COUNT * CARD_WIDTH).heightIs(ROW_COUNT * CARD_HEIGHT);
+    self.gameView.sd_layout.centerXEqualToView(self.view).topSpaceToView(self.view, 40).widthIs(COL_COUNT * CARD_WIDTH).heightIs(ROW_COUNT * CARD_HEIGHT);
     
     //添加按钮(开始,选择图片)
     UIButton *chooseImageBtn = [self addBtnWithTitle:@"选择图片"];
     [chooseImageBtn addTarget:self action:@selector(chooseImageBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    chooseImageBtn.sd_layout.centerXEqualToView(self.view).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
+    chooseImageBtn.sd_layout.centerXEqualToView(self.view).topSpaceToView(_gameView, 20).widthIs(80).heightIs(44);
     
     UIButton *resetBtn = [self addBtnWithTitle:@"重置"];
     [resetBtn addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
-    resetBtn.sd_layout.rightSpaceToView(chooseImageBtn, 20).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
+    resetBtn.sd_layout.rightSpaceToView(chooseImageBtn, 20).topSpaceToView(_gameView, 20).widthIs(80).heightIs(44);
     
     
     UIButton *orginImageBtn = [self addBtnWithTitle:@"原图"];
     [orginImageBtn addTarget:self action:@selector(orginImageBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    orginImageBtn.sd_layout.leftSpaceToView(chooseImageBtn, 20).topSpaceToView(_gameView, 10).widthIs(80).heightIs(44);
+    orginImageBtn.sd_layout.leftSpaceToView(chooseImageBtn, 20).topSpaceToView(_gameView, 20).widthIs(80).heightIs(44);
     
 }
 /**
@@ -235,6 +235,7 @@
     //相机
     UIAlertAction *nextImage = [UIAlertAction actionWithTitle:@"下一张图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.gameView.image = [UIImage imageNamed:[self nextImage]];
+        [self.gameView resetCardImages];
     }];
     
     //[alert addAction:cancel];

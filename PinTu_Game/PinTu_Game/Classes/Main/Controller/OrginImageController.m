@@ -39,7 +39,7 @@
 
 #pragma mark - 初始化控件
 - (void)setupChildView{
-    UIImageView *bgImageView= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    UIImageView *bgImageView= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_bg"]];
     [self.view addSubview:bgImageView];
     
     bgImageView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topEqualToView(self.view).bottomEqualToView(self.view);
