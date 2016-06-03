@@ -47,6 +47,12 @@
 
 #pragma mark - 初始化控件
 - (void)setupChildView{
+    
+    UIImageView *bgImageView= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    [self.view addSubview:bgImageView];
+    
+    bgImageView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topEqualToView(self.view).bottomEqualToView(self.view);
+    
     self.imageView.image = [UIImage imageNamed:@"pin_0"];
     //设置显示的拼图
     self.gameView= [[GameView alloc] init];

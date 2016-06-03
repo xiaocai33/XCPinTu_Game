@@ -39,6 +39,11 @@
 
 #pragma mark - 初始化控件
 - (void)setupChildView{
+    UIImageView *bgImageView= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    [self.view addSubview:bgImageView];
+    
+    bgImageView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topEqualToView(self.view).bottomEqualToView(self.view);
+    
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setTitle:@"返回" forState:UIControlStateNormal];
