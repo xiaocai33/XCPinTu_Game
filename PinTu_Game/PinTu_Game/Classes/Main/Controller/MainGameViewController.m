@@ -234,7 +234,10 @@
     
     //相机
     UIAlertAction *nextImage = [UIAlertAction actionWithTitle:@"下一张图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.gameView.image = [UIImage imageNamed:[self nextImage]];
+        UIImage *image = [UIImage imageNamed:[self nextImage]];
+        self.gameView.image = image;
+        self.imageView.image = image;
+        
         [self.gameView resetCardImages];
     }];
     

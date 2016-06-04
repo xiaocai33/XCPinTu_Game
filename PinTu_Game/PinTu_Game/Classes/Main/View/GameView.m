@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSMutableArray *cards;
 /** 上一次可移动的方向 */
 @property (nonatomic, assign) Dir lastDir;
+/** 是否开始移动 */
+@property (nonatomic, assign) BOOL touchStart;
 
 @end
 
@@ -109,6 +111,11 @@
  *  找到触摸到的方块位置
  */
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if (!_touchStart) {
+        //NSLog(@"touchesStart---%zd", _touchStart);
+    
+    _touchStart = YES;
     UITouch *touch = [[touches allObjects] objectAtIndex:0];
     //找出触摸到的坐标
     CGPoint point = [touch locationInView:self];
@@ -124,10 +131,12 @@
      *  @param int 移动的的坐标I(空白块的I坐标)
      *  @param int 移动的的坐标J(空白块的J坐标)
      */
+        NSLog(@"%zd--%zd", indexI, indexJ);
     void (^moveTouchCard)(int, int) = ^(int i, int j){
         //将当期位置设为空白块
         _cardsMap[indexI][indexJ] = nil;
         
+        NSLog(@"白块位置--%zd--%zd", indexI, indexJ);
         //更改空白块的坐标
         self.currentNullIndexI = indexI;
         self.currentNullIndexJ = indexJ;
@@ -141,6 +150,9 @@
         
         //移动图片
         [cardImage moveToPositionByIndexIJ];
+        
+        //设置当前点击结束
+        _touchStart = NO;
         
         //检测是否成功
         [self successPinTu];
@@ -168,9 +180,15 @@
             moveTouchCard(indexI, indexJ+1);
             break;
             
+        case DIR_NONE:
+            //设置当前点击结束
+            _touchStart = NO;
+            break;
         default:
             break;
     };
+    
+    }
 }
 
 /**
