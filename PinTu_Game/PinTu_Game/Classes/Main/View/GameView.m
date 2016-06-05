@@ -115,78 +115,86 @@
     if (!_touchStart) {
         //NSLog(@"touchesStart---%zd", _touchStart);
     
-    _touchStart = YES;
-    UITouch *touch = [[touches allObjects] objectAtIndex:0];
-    //找出触摸到的坐标
-    CGPoint point = [touch locationInView:self];
+        _touchStart = YES;
+        UITouch *touch = [[touches allObjects] objectAtIndex:0];
+        //找出触摸到的坐标
+        CGPoint point = [touch locationInView:self];
+        
+        int indexI = point.y/CARD_HEIGHT;
+        int indexJ = point.x/CARD_WIDTH;
+        if (indexI < 0 || indexJ < 0 || indexI > ROW_COUNT-1 || indexJ > COL_COUNT-1) {
+            _touchStart = NO;
+            return;
+        }
+        //NSLog(@"%zd--%zd", indexI, indexJ);
+    //单击了白块也直接返回
+        if (indexI == self.currentNullIndexI && indexJ == self.currentNullIndexJ) {
+            _touchStart = NO;
+            return;
+        }
     
-    int indexI = point.y/CARD_HEIGHT;
-    int indexJ = point.x/CARD_WIDTH;
-    if (indexI < 0 || indexJ < 0 || indexI > ROW_COUNT-1 || indexJ > COL_COUNT-1) return;
-    
-    CardImageView *cardImage = _cardsMap[indexI][indexJ];
-    
-    /**
-     *  移动空白块
-     *  @param int 移动的的坐标I(空白块的I坐标)
-     *  @param int 移动的的坐标J(空白块的J坐标)
-     */
-        NSLog(@"%zd--%zd", indexI, indexJ);
-    void (^moveTouchCard)(int, int) = ^(int i, int j){
-        //将当期位置设为空白块
-        _cardsMap[indexI][indexJ] = nil;
+        CardImageView *cardImage = _cardsMap[indexI][indexJ];
         
-        NSLog(@"白块位置--%zd--%zd", indexI, indexJ);
-        //更改空白块的坐标
-        self.currentNullIndexI = indexI;
-        self.currentNullIndexJ = indexJ;
-        
-        //设置原空白块的位置处为cardImage
-        _cardsMap[i][j] = cardImage;
-        
-        //重新设置当期块的坐标
-        cardImage.indexI = i;
-        cardImage.indexJ = j;
-        
-        //移动图片
-        [cardImage moveToPositionByIndexIJ];
-        
-        //设置当前点击结束
-        _touchStart = NO;
-        
-        //检测是否成功
-        [self successPinTu];
-        
-    };
-    //NSLog(@"%zd", [self cardImageMoveDir:cardImage]);
-    switch ([self cardImageMoveDir:cardImage]) {
-        //触摸块 上移-->  白块 下移
-        case DIR_UP:
-            moveTouchCard(indexI-1, indexJ);
-            break;
+        /**
+         *  移动空白块
+         *  @param int 移动的的坐标I(空白块的I坐标)
+         *  @param int 移动的的坐标J(空白块的J坐标)
+         */
+        void (^moveTouchCard)(int, int) = ^(int i, int j){
+            //将当期位置设为空白块
+            _cardsMap[indexI][indexJ] = nil;
             
-        //触摸块 下移-->  白块 上移
-        case DIR_DOWN:
-            moveTouchCard(indexI+1, indexJ);
-            break;
+            //NSLog(@"白块位置--%zd--%zd", indexI, indexJ);
+            //更改空白块的坐标
+            self.currentNullIndexI = indexI;
+            self.currentNullIndexJ = indexJ;
             
-        //触摸块 左移-->  白块 右移
-        case DIR_LEFT:
-            moveTouchCard(indexI, indexJ-1);
-            break;
+            //设置原空白块的位置处为cardImage
+            _cardsMap[i][j] = cardImage;
             
-        //触摸块 右移-->  白块 左移
-        case DIR_RIGHT:
-            moveTouchCard(indexI, indexJ+1);
-            break;
+            //重新设置当期块的坐标
+            cardImage.indexI = i;
+            cardImage.indexJ = j;
             
-        case DIR_NONE:
+            //移动图片
+            [cardImage moveToPositionByIndexIJ];
+            
             //设置当前点击结束
             _touchStart = NO;
-            break;
-        default:
-            break;
-    };
+            
+            //检测是否成功
+            [self successPinTu];
+            
+        };
+        //NSLog(@"%zd", [self cardImageMoveDir:cardImage]);
+        switch ([self cardImageMoveDir:cardImage]) {
+            //触摸块 上移-->  白块 下移
+            case DIR_UP:
+                moveTouchCard(indexI-1, indexJ);
+                break;
+                
+            //触摸块 下移-->  白块 上移
+            case DIR_DOWN:
+                moveTouchCard(indexI+1, indexJ);
+                break;
+                
+            //触摸块 左移-->  白块 右移
+            case DIR_LEFT:
+                moveTouchCard(indexI, indexJ-1);
+                break;
+                
+            //触摸块 右移-->  白块 左移
+            case DIR_RIGHT:
+                moveTouchCard(indexI, indexJ+1);
+                break;
+                
+            case DIR_NONE:
+                //设置当前点击结束
+                _touchStart = NO;
+                break;
+            default:
+                break;
+        };
     
     }
 }
