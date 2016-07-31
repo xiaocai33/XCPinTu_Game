@@ -15,7 +15,7 @@
 #import "OrginImageController.h"
 #import "MBProgressHUD+MJ.h"
 
-@interface MainGameViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, GameViewDelegate>
+@interface MainGameViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, GameViewDelegate, UIActionSheetDelegate>
 /** 显示要使用的图片 */
 @property (nonatomic, strong) GameView *gameView;
 
@@ -110,38 +110,105 @@
 #pragma mark - 选择图片
 /** 选择图片 */
 - (void)chooseImageBtnClick{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择图片来源" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-    //取消
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    
-    //内置图片下一张
-    UIAlertAction *nextImage = [UIAlertAction actionWithTitle:@"下一张" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //切换控制器保留的图片
-        self.imageView.image = [UIImage imageNamed:[self nextImage]];
-        //切换图片
-        self.gameView.image = self.imageView.image;
-        //打乱顺序
-        [self resetGame];
-        
-    }];
-    
-    //相机
-    UIAlertAction *cameraImage = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self chooseImageFromCameraOrLocation:UIImagePickerControllerSourceTypeCamera];
-       
-    }];
-    
-    //相册
-    UIAlertAction *photoImage = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self chooseImageFromCameraOrLocation:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-    }];
-    
-    [alert addAction:cancel];
-    [alert addAction:nextImage];
-    [alert addAction:cameraImage];
-    [alert addAction:photoImage];
-    [self presentViewController:alert animated:YES completion:nil];
+    [[[UIActionSheet alloc] initWithTitle:@"选择图片来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"内置图片",@"照像机",@"图库",@"相册", nil] showInView:self.view];
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    UIImagePickerController * upc;
+    
+    switch (buttonIndex) {
+        case 0:{//内置图片
+            //切换控制器保留的图片
+            self.imageView.image = [UIImage imageNamed:[self nextImage]];
+            //切换图片
+            self.gameView.image = self.imageView.image;
+            //打乱顺序
+            [self resetGame];
+            break;
+            }
+        case 1://照像机
+        {
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                
+                upc = [[UIImagePickerController alloc] init];
+                upc.sourceType = UIImagePickerControllerSourceTypeCamera;
+                upc.delegate=self;
+                [self presentViewController:upc animated:YES completion:nil];
+            }else {
+                [[[UIAlertView alloc] initWithTitle:@"提示" message:@"亲爱的主人，您的设备没有摄像头哦！" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil, nil] show];
+            }
+            
+            break;
+        }
+        case 2://图库
+        {
+            __block UIImagePickerController * upc1 = upc;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                upc1 = [[UIImagePickerController alloc] init];
+                upc1.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                upc1.delegate=self;
+                [self presentViewController:upc1 animated:YES completion:nil];
+            });
+            break;
+        }
+        case 3://相册
+        {
+            __block UIImagePickerController * upc1 = upc;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            upc1 = [[UIImagePickerController alloc] init];
+            upc1.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            upc1.delegate=self;
+            [self presentViewController:upc1 animated:YES completion:nil];
+            });
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+//- (void)chooseImageBtnClick{
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择图片来源" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+//    //取消
+//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+//    
+//    //内置图片下一张
+//    UIAlertAction *nextImage = [UIAlertAction actionWithTitle:@"下一张" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        //切换控制器保留的图片
+//        self.imageView.image = [UIImage imageNamed:[self nextImage]];
+//        //切换图片
+//        self.gameView.image = self.imageView.image;
+//        //打乱顺序
+//        [self resetGame];
+//        
+//    }];
+//    
+//    //相机
+//    UIAlertAction *cameraImage = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        //[self chooseImageFromCameraOrLocation:UIImagePickerControllerSourceTypeCamera];
+//       
+//    }];
+//    
+//    //相册
+//    UIAlertAction *photoImage = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        //[self chooseImageFromCameraOrLocation:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+//        UIImagePickerController *pickController = [[UIImagePickerController alloc] init];
+//        
+//        // 3.设置打开图库的类型
+//        pickController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+//        pickController.delegate = self;
+//            
+//       // 4.打开图片选择控制器
+//       [self presentViewController:pickController animated:YES completion:nil];
+//        
+//    }];
+//    
+//    [alert addAction:cancel];
+//    [alert addAction:nextImage];
+//    [alert addAction:cameraImage];
+//    [alert addAction:photoImage];
+//    [self presentViewController:alert animated:YES completion:nil];
+//}
 
 /** 从本地取出下一张图片 */
 - (NSString *)nextImage{
@@ -159,35 +226,31 @@
  *      UIImagePickerControllerSourceTypeCamera  相机
  *      UIImagePickerControllerSourceTypeSavedPhotosAlbum  相册
  */
-- (void)chooseImageFromCameraOrLocation:(UIImagePickerControllerSourceType)sourceType{
-    if (self.imageView.isAnimating)
-    {
-        [self.imageView stopAnimating];
-    }
-    
-    // 1.创建图片选择控制器
-    UIImagePickerController *pickController = [[UIImagePickerController alloc] init];
-    pickController.modalPresentationStyle = UIModalPresentationCurrentContext;
-     // 2.判断图库是否可用打开
-    if ([UIImagePickerController availableMediaTypesForSourceType:sourceType]) {
-        // 3.设置打开图库的类型
-        pickController.sourceType = sourceType;
-        pickController.delegate = self;
-        //解决打开相机时出现的警告
-        /**
-         *  Snapshotting a view that has not been rendered results in an empty snapshot. Ensure your view has been rendered at least once before snapshotting or snapshot after screen updates.
-         */
-    }else{
-        [MBProgressHUD showError:@"当前设备不支持相机或者相册图片" toView:self.view];
-    }
-    
-    // 4.打开图片选择控制器
-    [self presentViewController:pickController animated:YES completion:nil];
-    
-}
+//- (void)chooseImageFromCameraOrLocation:(UIImagePickerControllerSourceType)sourceType{
+////    if (self.imageView.isAnimating)
+////    {
+////        [self.imageView stopAnimating];
+////    }
+//    
+//    // 1.创建图片选择控制器
+//    UIImagePickerController *pickController = [[UIImagePickerController alloc] init];
+//    pickController.modalPresentationStyle = UIModalPresentationCurrentContext;
+//     // 2.判断图库是否可用打开
+//    if ([UIImagePickerController availableMediaTypesForSourceType:sourceType]) {
+//        // 3.设置打开图库的类型
+//        pickController.sourceType = sourceType;
+//        pickController.delegate = self;
+//
+//        // 4.打开图片选择控制器
+//        [self presentViewController:pickController animated:YES completion:nil];
+//    }else{
+//        [MBProgressHUD showError:@"当前设备不支持相机或者相册图片" toView:self.view];
+//    }
+//}
 
 #pragma mark -- UIImagePickerController代理方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    [picker dismissViewControllerAnimated:YES completion:nil];
     //取出选中的图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
@@ -197,7 +260,6 @@
     //保留image对象,防止选完后被释放
     self.imageView.image = image;
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
     //取出imageView中的图片传给gameView
     self.gameView.image = self.imageView.image;
     //打乱顺序
@@ -248,6 +310,9 @@
 
 }
 
+- (void)dealloc{
+    NSLog(@"MainGame -- dealloc");
+}
 
 
 @end

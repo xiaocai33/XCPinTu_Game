@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MLeaksFinder.h"
 #import "MainGameViewController.h"
 
 @interface AppDelegate ()

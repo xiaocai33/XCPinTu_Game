@@ -57,10 +57,13 @@
  */
 - (void)cupImage:(CGImageRef)gameImage{
     CGImageRelease(gameImage);
+    
     //清空上一次的视图(方便切换图片)
     for (CardImageView *cardView in self.cards) {
         [cardView removeFromSuperview];
     }
+    //清空数组
+    //[_cards removeAllObjects];
     self.cards = nil;
     
     CGFloat imageWidth = CGImageGetWidth(gameImage);
@@ -127,7 +130,7 @@
             return;
         }
         //NSLog(@"%zd--%zd", indexI, indexJ);
-    //单击了白块也直接返回
+        //单击了白块也直接返回
         if (indexI == self.currentNullIndexI && indexJ == self.currentNullIndexJ) {
             _touchStart = NO;
             return;
